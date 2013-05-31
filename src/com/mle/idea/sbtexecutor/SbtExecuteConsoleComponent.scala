@@ -20,6 +20,7 @@ import com.intellij.openapi.actionSystem.{DefaultActionGroup, ActionManager}
 class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectComponent(project) {
   private val builder = TextConsoleBuilderFactory.getInstance().createBuilder(project)
   val console = builder.getConsole
+  val commander = new CommandRunner(console)
 
   /**
    * Attaches the specified console view with the given title to the bottom.
@@ -33,20 +34,20 @@ class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectCompon
       val window = manager.registerToolWindow(TOOL_WINDOW_ID, false, ToolWindowAnchor.BOTTOM, true)
       val windowPanel = new SimpleToolWindowPanel(false, true)
       windowPanel setContent view.getComponent
-      // kill all button
-      //      windowPanel setToolbar consoleToolbarPanel()
+      // toolbar with kill button
+      windowPanel setToolbar newConsoleToolbarPanel
       val content = ContentFactory.SERVICE.getInstance().createContent(windowPanel, "Output", true)
       window.getContentManager.addContent(content)
     })
   }
 
-  def consoleToolbarPanel() = {
+  def newConsoleToolbarPanel = {
     val panel = new JPanel(new GridLayout())
-//    val action = new ActionAction("Kill All", _ => SbtCommandAction.killAll())
-//    val group = new DefaultActionGroup()
-//    group add action
-//    val toolbar = ActionManager.getInstance().createActionToolbar(SbtExecuteConsoleComponent.ACTION_TOOLBAR_ID, group, false)
-//    panel.add(toolbar.getComponent)
+    val action = new KillAction
+    val group = new DefaultActionGroup()
+    group add action
+    val toolbar = ActionManager.getInstance().createActionToolbar(SbtExecuteConsoleComponent.ACTION_TOOLBAR_ID, group, false)
+    panel add toolbar.getComponent
     panel
   }
 

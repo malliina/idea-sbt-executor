@@ -6,8 +6,7 @@ import java.io.File
 import com.intellij.openapi.application.PathManager
 import scala.sys.process.{ProcessLogger, Process}
 import com.intellij.ui.components.{JBPanel, JBScrollPane}
-import com.intellij.execution.ui.ConsoleViewContentType
-import scala.collection.mutable
+import scala.collection.JavaConversions._
 
 /**
  *
@@ -21,35 +20,32 @@ class SbtCommandAction(sbtCommand: String)
     val projectPathString = project.getBasePath
     val workingDir = Paths get projectPathString
     val commandParams = buildCommand(e, sbtCommand)
-    // uhoh
-    val c = SbtExecuteConsoleComponent.console.get
-    // clear any output from a previous commandParams
-    c.clear()
-    val consoleLogger = ProcessLogger(
-      out => c.print(out + "\n", ConsoleViewContentType.NORMAL_OUTPUT),
-      err => c.print(err + "\n", ConsoleViewContentType.ERROR_OUTPUT)
-    )
-    executeSbtCommand(commandParams, workingDir, consoleLogger)
-
+    val consoleComponent = project.getComponent(classOf[SbtExecuteConsoleComponent])
+    // scala
+    //    consoleComponent runProcess Process(commandParams, workingDir.toFile)
+    // java
+    val builder = new ProcessBuilder(commandParams)
+    builder.directory(workingDir.toFile)
+    builder.redirectErrorStream(true)
+    consoleComponent.commander.runJavaProcess(builder)
   }
 
-  def executeSbtCommand(commandParams: Seq[String], workingDir: Path, logger: ProcessLogger) {
-    val commandString = commandParams mkString " "
-    // print commandParams prior to execution
-    logger out commandString
-    try {
-      val builder = Process(commandParams, workingDir.toFile)
-      val backgroundProcess = builder run logger
-      SbtCommandAction add backgroundProcess
-      //      Future(backgroundProcess.exitValue()).map(exitValue => {
-      //        logger out s"Command: '$sbtCommand' completed with exit value: $exitValue"
-      //        SbtCommandAction.remove(backgroundProcess)
-      //      })
-    } catch {
-      case re: RuntimeException =>
-        logger out re.getMessage
-    }
-  }
+//  def executeSbtCommand(commandParams: Seq[String], workingDir: Path, logger: ProcessLogger) {
+//    val commandString = commandParams mkString " "
+//    // print commandParams prior to execution
+//    logger out commandString
+//    try {
+//      val builder = Process(commandParams, workingDir.toFile)
+//      val backgroundProcess = builder run logger
+//      //      Future(backgroundProcess.exitValue()).map(exitValue => {
+//      //        logger out s"Command: '$sbtCommand' completed with exit value: $exitValue"
+//      //        SbtCommandAction.remove(backgroundProcess)
+//      //      })
+//    } catch {
+//      case re: RuntimeException =>
+//        logger out re.getMessage
+//    }
+//  }
 
   def buildPanel = {
     val panel = new JBPanel
@@ -78,25 +74,5 @@ class SbtCommandAction(sbtCommand: String)
       "-jar",
       launcher.toPath.toAbsolutePath.toString
     ) ++ sbtCommands
-  }
-}
-
-/**
- * TODO do this properly
- */
-object SbtCommandAction {
-  private var running = mutable.Buffer.empty[Process]
-
-  def add(process: Process) {
-    running += process
-  }
-
-  def remove(process: Process) {
-    running -= process
-  }
-
-  def killAll() {
-    running.foreach(_.destroy())
-    running.clear()
   }
 }
