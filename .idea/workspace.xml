@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/META-INF/plugin.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sbt-executor.iml" afterPath="$PROJECT_DIR$/sbt-executor.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sbt-executor.iws" />
@@ -12,7 +11,7 @@
     <file path="/ExecuteSBT.java" changelist="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" time="1369923373416" ignored="false" />
     <file path="/SbtDialog.java" changelist="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" time="1369921871273" ignored="false" />
     <file path="/SbtGroup.java" changelist="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" time="1369909971130" ignored="false" />
-    <file path="/Dummy.txt" changelist="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" time="1370081745657" ignored="false" />
+    <file path="/Dummy.txt" changelist="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" time="1370081753959" ignored="false" />
     <file path="/fragment.java" changelist="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" time="1369923433389" ignored="false" />
     <file path="/ExecuteSBT2.scala" changelist="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" time="1369923238869" ignored="false" />
     <file path="/PropsDialog.scala" changelist="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" time="1369923644010" ignored="false" />
@@ -39,7 +38,7 @@
     <file path="$PROJECT_DIR$/../idea-sbt-plugin/sbt-plugin/src/main/java/net/orfjackal/sbt/plugin/SbtConsole.java" changelist="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" time="1370006146824" ignored="false" />
     <file path="/SbtConsole.java" changelist="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" time="1370006133051" ignored="false" />
     <file path="/.gitignore" changelist="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" time="1370008488246" ignored="false" />
-    <file path="/README.md" changelist="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" time="1370009345758" ignored="false" />
+    <file path="/README.md" changelist="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" time="1370082108289" ignored="false" />
     <file path="/SBT" changelist="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" time="1370009581529" ignored="false" />
     <file path="$PROJECT_DIR$/../throwaway/src/test/scala/com/mle/throwaway/tests/CommandTests.scala" changelist="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" time="1370023834688" ignored="false" />
     <file path="/CommandTests.scala" changelist="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" time="1370023793865" ignored="false" />
@@ -111,10 +110,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="plugin.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="plugin.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="30" selection-start="434" selection-end="434" vertical-scroll-proportion="0.19689119">
+            <state line="20" column="38" selection-start="706" selection-end="706" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="47" selection-start="251" selection-end="251" vertical-scroll-proportion="0.24548736">
               <folding />
             </state>
           </provider>
@@ -142,7 +153,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/com/mle/idea/executor/ActionAction.scala" />
         <option value="$PROJECT_DIR$/src/com/mle/idea/executor/SbtExecuteConsoleComponent.scala" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/com/mle/idea/executor/SbtCommandAction.scala" />
         <option value="$PROJECT_DIR$/src/com/mle/idea/sbtexecutor/FuncAction.scala" />
         <option value="$PROJECT_DIR$/src/com/mle/idea/sbtexecutor/SbtExecuteConsoleComponent.scala" />
@@ -154,6 +164,7 @@
         <option value="$PROJECT_DIR$/src/com/mle/idea/sbtexecutor/RunningAware.scala" />
         <option value="$PROJECT_DIR$/src/com/mle/idea/sbtexecutor/settings/ExecuteSbtSettings.scala" />
         <option value="$PROJECT_DIR$/META-INF/plugin.xml" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -450,7 +461,11 @@
       <created>1370080381253</created>
       <updated>1370080381253</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="docs">
+      <created>1370081755419</created>
+      <updated>1370081755419</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -475,8 +490,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="274" y="74" width="1362" height="1004" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2962264" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924527" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -484,7 +500,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SBT Execute" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2865566" sideWeight="0.33" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24528302" sideWeight="0.41997793" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2546154" sideWeight="0.7134434" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2546154" sideWeight="0.7134434" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2865566" sideWeight="0.66923076" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -494,7 +510,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3278302" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2962264" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -542,7 +557,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="enabled/disabled actions as appropriate" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -559,6 +574,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="add kill button, print command prior to execution" />
     <MESSAGE value="enabled/disabled actions as appropriate" />
+    <MESSAGE value="docs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -572,14 +588,6 @@
     <entry file="file://$PROJECT_DIR$/sbt-executor.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="36" selection-start="212" selection-end="212" vertical-scroll-proportion="0.06597672" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="46" selection-start="179" selection-end="179" vertical-scroll-proportion="0.13654618" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LICENSE">
@@ -647,7 +655,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="30" selection-start="434" selection-end="434" vertical-scroll-proportion="0.19689119">
+        <state line="20" column="38" selection-start="706" selection-end="706" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="47" selection-start="251" selection-end="251" vertical-scroll-proportion="0.24548736">
           <folding />
         </state>
       </provider>
