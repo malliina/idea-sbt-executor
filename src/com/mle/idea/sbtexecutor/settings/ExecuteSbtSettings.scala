@@ -13,7 +13,7 @@ class ExecuteSbtSettings {
 }
 
 object ExecuteSbtSettings {
-  val defaultCommands = Seq("compile", "clean")
+  val defaultCommands = Seq("compile", "clean", "gen-idea")
   val settingsKey = "sbt-executor-commands"
 
   def save(commands: Seq[String]) {

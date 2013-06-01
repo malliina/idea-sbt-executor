@@ -8,33 +8,54 @@ import scala.collection.JavaConversions._
 import CommandRunner._
 
 /**
+ * TODO concurrent programming
  *
  * @author mle
  */
 class CommandRunner(console: ConsoleView) {
-  //  private var backgroundProcess: Option[Process] = None
   // runs the SBT command in the background
   private var javaBackgroundProcess: Option[java.lang.Process] = None
-  //  private val consoleLogger = ProcessLogger(
-  //    out => console.print(out + "\n", ConsoleViewContentType.NORMAL_OUTPUT),
-  //    err => console.print(err + "\n", ConsoleViewContentType.ERROR_OUTPUT)
-  //  )
+
+  /**
+   *
+   * @return the exit value wrapped in an Option or None if the process is running, was canceled or has not been started
+   */
+  def exitValue: Option[Int] = javaBackgroundProcess.map(p => {
+    CommandRunner.exitValue(p)
+  }).flatten
+
+  def isRunning = javaBackgroundProcess.map(p => CommandRunner.exitValue(p).isEmpty).getOrElse(false)
 
   def runJavaProcess(builder: java.lang.ProcessBuilder) {
     javaBackgroundProcess.foreach(_.destroy())
     console.clear()
-    console.print(builder.command().mkString(" ") + newLine, ConsoleViewContentType.SYSTEM_OUTPUT)
+    val commandString = builder.command().mkString(" ") + newLine
+    console.print(commandString, ConsoleViewContentType.SYSTEM_OUTPUT)
     val process = builder.start()
     javaBackgroundProcess = Some(process)
-    Future(Source.fromInputStream(process.getInputStream).getLines().foreach(line => {
-      console print(line + newLine, ConsoleViewContentType.NORMAL_OUTPUT)
-    }))
+    Future {
+      val is = Source.fromInputStream(process.getInputStream)
+      try {
+        is.getLines().foreach(line => {
+          console print(line + newLine, ConsoleViewContentType.NORMAL_OUTPUT)
+        })
+      } finally {
+        is.close()
+      }
+    }
   }
 
   def cancelJavaProcess() {
     javaBackgroundProcess.foreach(_.destroy())
     javaBackgroundProcess = None
   }
+
+  //  private var backgroundProcess: Option[Process] = None
+
+  //  private val consoleLogger = ProcessLogger(
+  //    out => console.print(out + "\n", ConsoleViewContentType.NORMAL_OUTPUT),
+  //    err => console.print(err + "\n", ConsoleViewContentType.ERROR_OUTPUT)
+  //  )
 
   /**
    *
@@ -61,5 +82,13 @@ class CommandRunner(console: ConsoleView) {
 }
 
 object CommandRunner {
+  def exitValue(process: Process): Option[Int] =
+    try {
+      Some(process.exitValue())
+    } catch {
+      case itse: IllegalThreadStateException =>
+        None
+    }
+
   val newLine = sys.props("line.separator")
 }

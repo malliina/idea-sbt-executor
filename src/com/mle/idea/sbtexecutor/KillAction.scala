@@ -9,9 +9,10 @@ import com.intellij.execution.ui.ConsoleViewContentType
  * @author mle
  */
 class KillAction
-  extends AnAction("Cancel command", null, IconLoader.getIcon("/debugger/killProcess.png")) {
+  extends AnAction("Cancel command", null, IconLoader.getIcon("/debugger/killProcess.png"))
+  with EnabledWhenRunning {
   def actionPerformed(e: AnActionEvent) {
-    val console = e.getProject.getComponent(classOf[SbtExecuteConsoleComponent])
+    val console = Util.runner(e)
     console.commander.cancelJavaProcess()
     console.console.print("Canceled by user." + CommandRunner.newLine, ConsoleViewContentType.ERROR_OUTPUT)
   }
