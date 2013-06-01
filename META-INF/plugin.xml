@@ -6,7 +6,7 @@
 
     <description><![CDATA[
       Adds a menu to IDEA that is used to execute Simple Build Tool (SBT) commands.<br>
-      <small>SBT is a build tool typically used for Scala projects.</small>
+      SBT is a build tool typically used for Scala projects.
       ]]></description>
 
     <change-notes><![CDATA[
