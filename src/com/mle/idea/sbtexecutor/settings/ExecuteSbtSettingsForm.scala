@@ -24,7 +24,7 @@ class ExecuteSbtSettingsForm {
   decorator.setEditAction(new AnActionButtonRunnable {
     def run(e: AnActionButton) {
       // show dialog, get name
-      val newValue = JOptionPane.showInputDialog("Edit SBT commandParams", sbtCommandList.getSelectedValue)
+      val newValue = JOptionPane.showInputDialog("Edit SBT command", sbtCommandList.getSelectedValue)
       if (newValue != null) {
         listModel.setElementAt(newValue, sbtCommandList.getSelectedIndex)
       }
@@ -33,7 +33,7 @@ class ExecuteSbtSettingsForm {
   decorator.setAddAction(new AnActionButtonRunnable {
     def run(e: AnActionButton) {
       // show dialog, get name
-      val addedCommand = JOptionPane.showInputDialog("Add SBT commandParams")
+      val addedCommand = JOptionPane.showInputDialog("Add SBT command")
       listModel add addedCommand
     }
   })

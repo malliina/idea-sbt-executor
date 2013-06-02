@@ -24,9 +24,9 @@ class SbtCommandAction(sbtCommand: String)
     //    consoleComponent runProcess Process(commandParams, workingDir.toFile)
     // java
     val builder = new ProcessBuilder(commandParams)
-    builder.directory(workingDir.toFile)
-    builder.redirectErrorStream(true)
-    consoleComponent.commander.runJavaProcess(builder)
+    builder directory workingDir.toFile
+    builder redirectErrorStream true
+    consoleComponent.commander runJavaProcess builder
   }
 
   private def buildCommand(e: AnActionEvent, sbtCommand: String) = {
