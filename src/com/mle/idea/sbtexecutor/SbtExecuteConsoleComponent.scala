@@ -46,7 +46,8 @@ class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectCompon
     val action = new KillAction
     val group = new DefaultActionGroup()
     group add action
-    val toolbar = ActionManager.getInstance().createActionToolbar(SbtExecuteConsoleComponent.ACTION_TOOLBAR_ID, group, false)
+    val toolbar = ActionManager.getInstance()
+      .createActionToolbar(SbtExecuteConsoleComponent.ACTION_TOOLBAR_ID, group, false)
     panel add toolbar.getComponent
     panel
   }
@@ -65,6 +66,24 @@ class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectCompon
     }
   }
 
+  private def setVisible(visible: Boolean) {
+    val toolWindowManager = ToolWindowManager.getInstance(project)
+    val noop = new Runnable {
+      def run() {}
+    }
+    Option(toolWindowManager)
+      .map(twm => Option(twm.getToolWindow(TOOL_WINDOW_ID))).flatten
+      .map(tw => if (visible) tw.show(noop) else tw.hide(noop))
+  }
+
+  def show() {
+    setVisible(true)
+  }
+
+  def hide() {
+    setVisible(false)
+  }
+
   override def projectOpened() {
     val manager = StartupManager.getInstance(project)
     manager.registerPostStartupActivity(new Runnable {
@@ -72,20 +91,18 @@ class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectCompon
         val consoleComp = Option(project.getComponent(classOf[SbtExecuteConsoleComponent]))
           .getOrElse(new SbtExecuteConsoleComponent(project))
         consoleComp.registerConsole()
-        SbtExecuteConsoleComponent.console = Some(consoleComp.console)
       }
     })
   }
 
   override def disposeComponent() {
     unregisterConsole()
+    commander.cancelJavaProcess()
     super.disposeComponent()
   }
 }
 
 object SbtExecuteConsoleComponent {
   val TOOL_WINDOW_ID = "SBT Execute"
-  // not used yet
   val ACTION_TOOLBAR_ID = "SbtExecuteActionToolbar"
-  var console: Option[ConsoleView] = None
 }

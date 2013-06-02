@@ -20,6 +20,7 @@ class SbtCommandAction(sbtCommand: String)
     val workingDir = Paths get projectPathString
     val commandParams = buildCommand(e, sbtCommand)
     val consoleComponent = project.getComponent(classOf[SbtExecuteConsoleComponent])
+    consoleComponent.show()
     // scala
     //    consoleComponent runProcess Process(commandParams, workingDir.toFile)
     // java
