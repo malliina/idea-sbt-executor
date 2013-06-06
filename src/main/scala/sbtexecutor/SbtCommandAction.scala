@@ -1,10 +1,10 @@
 package com.mle.idea.sbtexecutor
 
 import com.intellij.openapi.actionSystem.{LangDataKeys, AnActionEvent, AnAction}
-import java.nio.file.Paths
-import java.io.File
+import java.nio.file.{Files, Path, Paths}
 import com.intellij.openapi.application.PathManager
 import scala.collection.JavaConversions._
+import com.intellij.openapi.util.io.{FileUtil, StreamUtil}
 
 /**
  *
@@ -33,9 +33,7 @@ class SbtCommandAction(sbtCommand: String)
   private def buildCommand(e: AnActionEvent, sbtCommand: String) = {
     val module = e.getData(LangDataKeys.MODULE)
     val java = "java"
-    // from idea-sbt-plugin on github
-    val launcherName = "sbt-launch.jar"
-    val launcher = new File(new File(PathManager.getSystemPath, "sbt"), launcherName)
+    val sbtJar = ensureSbtJarExists
     // set SBT project if any is selected (helps for multi-module idea builds)
     val setProjectCommand =
       if (module != null) {
@@ -48,8 +46,25 @@ class SbtCommandAction(sbtCommand: String)
       "-Xmx512M",
       "-XX:MaxPermSize=256M",
       "-jar",
-      launcher.toPath.toAbsolutePath.toString
+      sbtJar.toAbsolutePath.toString
     ) ++ setProjectCommand :+ sbtCommand :+ "exit"
+  }
+
+  // adapted from idea-sbt-plugin
+  private def ensureSbtJarExists: Path = {
+    val jarName = "sbt-launch.jar"
+    val maybeSbtJar = Paths.get(PathManager.getSystemPath, "sbtexe", jarName)
+    if (!(Files exists maybeSbtJar)) {
+      val is = classOf[SbtCommandAction].getClassLoader.getResourceAsStream(jarName)
+      val bytes =
+        try {
+          StreamUtil loadFromStream is
+        } finally {
+          StreamUtil closeStream is
+        }
+      FileUtil.writeToFile(maybeSbtJar.toFile, bytes)
+    }
+    maybeSbtJar
   }
 
   //  def executeSbtCommand(commandParams: Seq[String], workingDir: Path, logger: ProcessLogger) {
