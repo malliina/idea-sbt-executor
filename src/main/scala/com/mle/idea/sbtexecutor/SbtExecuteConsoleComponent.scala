@@ -21,6 +21,7 @@ class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectCompon
   private val builder = TextConsoleBuilderFactory.getInstance().createBuilder(project)
   val console = builder.getConsole
   val commander = new CommandRunner(console)
+  val killAction = new KillAction
 
   /**
    * Attaches the specified console view with the given title to the bottom.
@@ -43,9 +44,8 @@ class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectCompon
 
   def newConsoleToolbarPanel = {
     val panel = new JPanel(new GridLayout())
-    val action = new KillAction
     val group = new DefaultActionGroup()
-    group add action
+    group add killAction
     val toolbar = ActionManager.getInstance()
       .createActionToolbar(SbtExecuteConsoleComponent.ACTION_TOOLBAR_ID, group, false)
     panel add toolbar.getComponent

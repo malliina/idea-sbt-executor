@@ -20,11 +20,9 @@ class CommandRunner(console: ConsoleView) {
    *
    * @return the exit value wrapped in an Option or None if the process is running, was canceled or has not been started
    */
-  def exitValue: Option[Int] = javaBackgroundProcess.map(p => {
-    CommandRunner.exitValue(p)
-  }).flatten
+  def exitValue: Option[Int] = javaBackgroundProcess.map(CommandRunner.exitValue).flatten
 
-  def isRunning = javaBackgroundProcess.map(p => CommandRunner.exitValue(p).isEmpty).getOrElse(false)
+  def isRunning = javaBackgroundProcess.exists(p => CommandRunner.exitValue(p).isEmpty)
 
   def runJavaProcess(builder: java.lang.ProcessBuilder) {
     javaBackgroundProcess.foreach(_.destroy())

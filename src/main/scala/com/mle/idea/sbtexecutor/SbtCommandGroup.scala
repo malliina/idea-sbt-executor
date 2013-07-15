@@ -13,7 +13,10 @@ class SbtCommandGroup extends ActionGroup {
   def getChildren(e: AnActionEvent): Array[AnAction] = actions
 
   def loadActions: Array[AnAction] = {
-    (ExecuteSbtSettings.load map (cmd => new SbtCommandAction(cmd))).toArray
+    val commands = ExecuteSbtSettings.loadCommands
+    val actionBuilder: String => SbtCommandAction = new SbtCommandAction(_, ExecuteSbtSettings.loadVmOptions)
+    val actions = commands map actionBuilder
+    actions.toArray
   }
 
   def reload() {

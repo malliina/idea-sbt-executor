@@ -13,15 +13,17 @@ class ExecuteSbtConfigurable(appSettings: ExecuteSbtSettings) extends Configurab
 
   def createComponent(): JComponent = form.comp
 
-  def isModified: Boolean = appSettings.sbtCommands != form.sbtCommands.toSeq
+  def isModified: Boolean =
+    appSettings.commands != form.commands.toSeq || appSettings.vmOptions != form.vmOptions
 
   def apply() {
-    appSettings.sbtCommands = form.sbtCommands
-    ExecuteSbtSettings.save(appSettings.sbtCommands)
+    appSettings.commands = form.commands
+    appSettings.vmOptions = form.vmOptions
+    ExecuteSbtSettings.save(appSettings)
   }
 
   def reset() {
-    form.setModel(appSettings.sbtCommands)
+    form.setModel(appSettings)
   }
 
   def disposeUIResources() {}

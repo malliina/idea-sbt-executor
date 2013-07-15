@@ -7,8 +7,7 @@ trait RunningAware extends AnAction {
 
   override def update(e: AnActionEvent) {
     val runnerOpt = Util.runnerOpt(e)
-    val isRunning = runnerOpt.map(_.commander.isRunning)
-      .getOrElse(false)
+    val isRunning = runnerOpt.exists(_.commander.isRunning)
     val shouldEnable = isRunning == enableWhenRunning
     e.getPresentation setEnabled shouldEnable
   }
