@@ -10,7 +10,7 @@
       ]]></description>
 
     <change-notes><![CDATA[
-      Added VM options, removed Java 7 dependency.<br>
+      Updated bundled sbt-launch.jar to 0.13.0.<br>
       ]]>
     </change-notes>
 
