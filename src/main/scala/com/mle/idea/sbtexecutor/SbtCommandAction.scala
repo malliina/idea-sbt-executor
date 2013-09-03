@@ -35,7 +35,7 @@ class SbtCommandAction(sbtCommand: String, vmOptions: String)
     val module = e.getData(LangDataKeys.MODULE)
     val java = "java"
     val vmOptionsSeq = vmOptions split " "
-    val sbtJar = ensureSbtJarExists
+    val sbtJar = ensureSbtJarExists()
     // set SBT project if any is selected (helps for multi-module idea builds)
     val setProjectCommand =
       if (module != null) {
@@ -51,8 +51,8 @@ class SbtCommandAction(sbtCommand: String, vmOptions: String)
   }
 
   // adapted from idea-sbt-plugin
-  private def ensureSbtJarExists: File = {
-    val jarName = "sbt-launch.jar"
+  private def ensureSbtJarExists(): File = {
+    val jarName = "sbt-launch-0.13.0.jar"
     //    val maybeSbtJar = Paths.get(PathManager.getSystemPath, "sbtexe", jarName)
     val maybeSbtJar = new File(new File(PathManager.getSystemPath, "sbtexe"), jarName)
     if (!maybeSbtJar.exists()) {

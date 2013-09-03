@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>com.mle.idea.sbtexecutor</id>
     <name>SBT Executor</name>
-    <version>1.1.0</version>
+    <version>1.2.1</version>
     <vendor email="malliina123@gmail.com" url="https://github.com/malliina/sbt-executor">Skogberg Labs</vendor>
 
     <description><![CDATA[
