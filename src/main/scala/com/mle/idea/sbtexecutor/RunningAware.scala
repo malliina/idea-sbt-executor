@@ -1,6 +1,6 @@
 package com.mle.idea.sbtexecutor
 
-import com.intellij.openapi.actionSystem.{AnActionEvent, AnAction}
+import com.intellij.openapi.actionSystem.{AnAction, AnActionEvent}
 
 trait RunningAware extends AnAction {
   def enableWhenRunning: Boolean
@@ -13,11 +13,8 @@ trait RunningAware extends AnAction {
   }
 }
 
-/**
- * An action that is enabled when no SBT command is running, disabled otherwise.
- *
- * @author mle
- */
+/** An action that is enabled when no SBT command is running, disabled otherwise.
+  */
 trait EnabledWhenNotRunning extends RunningAware {
   override val enableWhenRunning = false
 }
@@ -25,5 +22,3 @@ trait EnabledWhenNotRunning extends RunningAware {
 trait EnabledWhenRunning extends RunningAware {
   override val enableWhenRunning = true
 }
-
-

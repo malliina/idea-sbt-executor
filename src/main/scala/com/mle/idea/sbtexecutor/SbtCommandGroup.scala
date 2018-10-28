@@ -1,12 +1,8 @@
 package com.mle.idea.sbtexecutor
 
-import com.intellij.openapi.actionSystem.{ActionManager, AnAction, AnActionEvent, ActionGroup}
+import com.intellij.openapi.actionSystem.{ActionGroup, ActionManager, AnAction, AnActionEvent}
 import com.mle.idea.sbtexecutor.settings.ExecuteSbtSettings
 
-/**
- *
- * @author mle
- */
 class SbtCommandGroup extends ActionGroup {
   var actions: Array[AnAction] = loadActions
 
@@ -19,7 +15,7 @@ class SbtCommandGroup extends ActionGroup {
     actions.toArray
   }
 
-  def reload() {
+  def reload(): Unit = {
     actions = loadActions
   }
 }
@@ -27,7 +23,7 @@ class SbtCommandGroup extends ActionGroup {
 object SbtCommandGroup {
   val id = "SBT command group"
 
-  def reload() {
+  def reload(): Unit = {
     val group = ActionManager.getInstance().getAction(id).asInstanceOf[SbtCommandGroup]
     group.reload()
   }

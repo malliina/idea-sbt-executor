@@ -2,33 +2,30 @@ package com.mle.idea.sbtexecutor.settings
 
 import com.intellij.openapi.options.Configurable
 import javax.swing.JComponent
-import scala.collection.JavaConversions._
 
-/**
- *
- * @author mle
- */
+import scala.collection.JavaConverters.asScalaBufferConverter
+
 class ExecuteSbtConfigurable(appSettings: ExecuteSbtSettings) extends Configurable {
   val form = new ExecuteSbtSettingsForm
 
   def createComponent(): JComponent = form.comp
 
   def isModified: Boolean =
-    appSettings.commands != form.commands.toSeq || appSettings.vmOptions != form.vmOptions
+    appSettings.commands != form.commands.asScala || appSettings.vmOptions != form.vmOptions
 
-  def apply() {
-    appSettings.commands = form.commands
+  def apply(): Unit = {
+    appSettings.commands = form.commands.asScala
     appSettings.vmOptions = form.vmOptions
     ExecuteSbtSettings.save(appSettings)
   }
 
-  def reset() {
+  override def reset(): Unit = {
     form.setModel(appSettings)
   }
 
-  def disposeUIResources() {}
+  override def disposeUIResources(): Unit = {}
 
   def getDisplayName = "SBT Executor"
 
-  def getHelpTopic: String = null
+  override def getHelpTopic: String = null
 }

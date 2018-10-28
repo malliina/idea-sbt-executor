@@ -1,17 +1,13 @@
 package com.mle.idea.sbtexecutor.settings
 
-import com.intellij.ui.{AnActionButton, AnActionButtonRunnable, CollectionListModel, ToolbarDecorator}
-import com.intellij.openapi.ui.LabeledComponent
-import javax.swing._
-import com.intellij.ui.components.{JBPanel, JBLabel, JBList}
 import java.awt._
 
-/**
- *
- * @author mle
- */
+import com.intellij.openapi.ui.{LabeledComponent, Messages}
+import com.intellij.ui.components.{JBLabel, JBList, JBPanel}
+import com.intellij.ui.{AnActionButton, AnActionButtonRunnable, CollectionListModel, ToolbarDecorator}
+import javax.swing._
+
 class ExecuteSbtSettingsForm {
-  // this piece of shit does not extend ListModel[T] but only ListModel
   private val listModel = new CollectionListModel[String]("compile", "clean")
   private val vmOptionsLabel = new JBLabel("VM parameters", SwingConstants.LEFT)
   private val vmOptionsText = new JTextField
@@ -21,18 +17,18 @@ class ExecuteSbtSettingsForm {
 
   def vmOptions = vmOptionsText.getText
 
-  def setModel(settings: ExecuteSbtSettings) {
+  def setModel(settings: ExecuteSbtSettings): Unit = {
     listModel.removeAll()
     settings.commands foreach (c => listModel add c)
     vmOptionsText setText settings.vmOptions
   }
 
-  private val sbtCommandList: JList[String] = new JBList(listModel).asInstanceOf[JList[String]]
+  private val sbtCommandList: JList[String] = new JBList(listModel)
   private val decorator = ToolbarDecorator createDecorator sbtCommandList
   decorator.setEditAction(new AnActionButtonRunnable {
     def run(e: AnActionButton) {
       // show dialog, get name
-      val newValue = JOptionPane.showInputDialog("Edit SBT command", sbtCommandList.getSelectedValue)
+      val newValue = Messages.showInputDialog("Edit SBT command", "Edit", null, sbtCommandList.getSelectedValue, null)
       if (newValue != null) {
         listModel.setElementAt(newValue, sbtCommandList.getSelectedIndex)
       }
@@ -41,7 +37,7 @@ class ExecuteSbtSettingsForm {
   decorator.setAddAction(new AnActionButtonRunnable {
     def run(e: AnActionButton) {
       // show dialog, get name
-      val addedCommand = JOptionPane.showInputDialog("Add SBT command")
+      val addedCommand = Messages.showInputDialog("Add SBT command", "Input", null)
       listModel add addedCommand
     }
   })

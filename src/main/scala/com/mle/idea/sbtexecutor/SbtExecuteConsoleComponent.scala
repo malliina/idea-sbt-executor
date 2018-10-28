@@ -1,22 +1,19 @@
 package com.mle.idea.sbtexecutor
 
-import com.intellij.openapi.project.Project
-import com.intellij.execution.filters.TextConsoleBuilderFactory
-import com.intellij.openapi.wm.{ToolWindowAnchor, ToolWindowManager}
-import SbtExecuteConsoleComponent._
-import com.intellij.openapi.ui.SimpleToolWindowPanel
-import com.intellij.ui.content.ContentFactory
-import com.intellij.execution.ui.ConsoleView
-import com.intellij.openapi.components.AbstractProjectComponent
-import com.intellij.openapi.startup.StartupManager
 import java.awt.GridLayout
-import javax.swing.JPanel
-import com.intellij.openapi.actionSystem.{DefaultActionGroup, ActionManager}
 
-/**
- *
- * @author mle
- */
+import com.intellij.execution.filters.TextConsoleBuilderFactory
+import com.intellij.execution.ui.ConsoleView
+import com.intellij.openapi.actionSystem.{ActionManager, DefaultActionGroup}
+import com.intellij.openapi.components.AbstractProjectComponent
+import com.intellij.openapi.project.Project
+import com.intellij.openapi.startup.StartupManager
+import com.intellij.openapi.ui.SimpleToolWindowPanel
+import com.intellij.openapi.wm.{ToolWindowAnchor, ToolWindowManager}
+import com.intellij.ui.content.ContentFactory
+import com.mle.idea.sbtexecutor.SbtExecuteConsoleComponent._
+import javax.swing.JPanel
+
 class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectComponent(project) {
   private val builder = TextConsoleBuilderFactory.getInstance().createBuilder(project)
   val console = builder.getConsole
@@ -24,11 +21,11 @@ class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectCompon
   val killAction = new KillAction
 
   /**
-   * Attaches the specified console view with the given title to the bottom.
-   *
-   * @param view console to register
-   * @param tabTitle title of console tab
-   */
+    * Attaches the specified console view with the given title to the bottom.
+    *
+    * @param view     console to register
+    * @param tabTitle title of console tab
+    */
   def registerConsole(view: ConsoleView, tabTitle: String) {
     val toolWindowManager = ToolWindowManager.getInstance(project)
     Option(toolWindowManager).foreach(manager => {
@@ -53,8 +50,8 @@ class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectCompon
   }
 
   /**
-   * Attaches the "SBT Execute" console to the bottom.
-   */
+    * Attaches the "SBT Execute" console to the bottom.
+    */
   def registerConsole() {
     registerConsole(console, TOOL_WINDOW_ID)
   }

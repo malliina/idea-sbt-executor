@@ -2,13 +2,7 @@ package com.mle.idea.sbtexecutor.settings
 
 import com.intellij.ide.util.PropertiesComponent
 import com.mle.idea.sbtexecutor.SbtCommandGroup
-import ExecuteSbtSettings._
-
-/**
- *
- * @author mle
- */
-//case class Settings(commands: Seq[String], vmOptions: String)
+import com.mle.idea.sbtexecutor.settings.ExecuteSbtSettings._
 
 class ExecuteSbtSettings {
   var commands: Seq[String] = loadCommands
@@ -16,16 +10,15 @@ class ExecuteSbtSettings {
 }
 
 object ExecuteSbtSettings {
-  val defaultCommands = Seq("compile", "clean", "gen-idea")
-  val defaultVmOptions = "-Xmx512M -XX:MaxPermSize=256M"
+  val defaultCommands = Seq("compile", "test", "clean")
+  val defaultVmOptions = "-Xmx512M -XX:MaxPermSize=256M -Dsbt.log.noformat=true"
   val settingsKey = "sbt-executor-commands"
   val vmOptionsKey = "sbt-executor-vmoptions"
 
   def save(settings: ExecuteSbtSettings) {
     val appProps = PropertiesComponent.getInstance()
-    appProps.setValues(settingsKey, settings.commands.toArray)
+    appProps.setValues(settingsKey, settings.commands.map(Option.apply).flatten.toArray)
     appProps.setValue(vmOptionsKey, settings.vmOptions)
-    // TODO: refactor
     SbtCommandGroup.reload()
   }
 

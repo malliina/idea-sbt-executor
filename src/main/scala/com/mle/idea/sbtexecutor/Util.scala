@@ -1,12 +1,8 @@
 package com.mle.idea.sbtexecutor
 
-import com.intellij.openapi.project.Project
 import com.intellij.openapi.actionSystem.AnActionEvent
+import com.intellij.openapi.project.Project
 
-/**
- *
- * @author mle
- */
 object Util {
   // both e.getProject and project.getComponent may return null
   def runnerOpt(e: AnActionEvent) =

@@ -1,20 +1,18 @@
 package com.mle.idea.sbtexecutor
 
-import com.intellij.openapi.actionSystem.{LangDataKeys, AnActionEvent, AnAction}
 import java.io.File
+
+import com.intellij.openapi.actionSystem.{AnAction, AnActionEvent}
 import com.intellij.openapi.application.PathManager
-import scala.collection.JavaConversions._
 import com.intellij.openapi.util.io.{FileUtil, StreamUtil}
 
-/**
- *
- * @author mle
- */
+import scala.collection.JavaConverters.seqAsJavaListConverter
+
 class SbtCommandAction(sbtCommand: String, vmOptions: String)
   extends AnAction(sbtCommand, s"Executes $sbtCommand", null)
-  with EnabledWhenNotRunning {
+    with EnabledWhenNotRunning {
 
-  def actionPerformed(e: AnActionEvent) {
+  def actionPerformed(e: AnActionEvent): Unit = {
     val project = e.getProject
     val projectPathString = project.getBasePath
     //    val workingDir = Paths get projectPathString
@@ -25,24 +23,24 @@ class SbtCommandAction(sbtCommand: String, vmOptions: String)
     // scala
     //    consoleComponent runProcess Process(commandParams, workingDir.toFile)
     // java
-    val builder = new ProcessBuilder(commandParams)
+    val builder = new ProcessBuilder(commandParams.asJava)
     builder directory workingDir
     builder redirectErrorStream true
     consoleComponent.commander runJavaProcess builder
   }
 
-  private def buildCommand(e: AnActionEvent, sbtCommand: String, vmOptions: String) = {
-    val module = e.getData(LangDataKeys.MODULE)
+  private def buildCommand(e: AnActionEvent, sbtCommand: String, vmOptions: String): Seq[String] = {
+//    val module = e.getData(LangDataKeys.MODULE)
     val java = "java"
     val vmOptionsSeq = vmOptions split " "
     val sbtJar = ensureSbtJarExists()
     // set SBT project if any is selected (helps for multi-module idea builds)
-    val setProjectCommand =
-      if (module != null) {
-        Seq("\"project " + module.getName + "\"")
-      } else {
-        Seq.empty[String]
-      }
+    val setProjectCommand = Seq.empty[String]
+//      if (module != null) {
+//        Seq("\"project " + module.getName + "\"")
+//      } else {
+//        Seq.empty[String]
+//      }
     Seq(java) ++
       vmOptionsSeq ++
       Seq("-jar", sbtJar.getAbsolutePath) ++
@@ -52,7 +50,7 @@ class SbtCommandAction(sbtCommand: String, vmOptions: String)
 
   // adapted from idea-sbt-plugin
   private def ensureSbtJarExists(): File = {
-    val jarName = "sbt-launch-0.13.0.jar"
+    val jarName = "sbt-launch-1.2.6.jar"
     //    val maybeSbtJar = Paths.get(PathManager.getSystemPath, "sbtexe", jarName)
     val maybeSbtJar = new File(new File(PathManager.getSystemPath, "sbtexe"), jarName)
     if (!maybeSbtJar.exists()) {

@@ -1,25 +1,22 @@
 package com.mle.idea.sbtexecutor
 
 import com.intellij.execution.ui.{ConsoleView, ConsoleViewContentType}
+import com.mle.idea.sbtexecutor.CommandRunner._
+
+import scala.collection.JavaConversions._
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import scala.io.Source
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.collection.JavaConversions._
-import CommandRunner._
 
-/**
- * TODO concurrent programming
- *
- * @author mle
- */
+/** TODO concurrent programming
+  */
 class CommandRunner(console: ConsoleView) {
   // runs the SBT command in the background
   private var javaBackgroundProcess: Option[java.lang.Process] = None
 
   /**
-   *
-   * @return the exit value wrapped in an Option or None if the process is running, was canceled or has not been started
-   */
+    * @return the exit value wrapped in an Option or None if the process is running, was canceled or has not been started
+    */
   def exitValue: Option[Int] = javaBackgroundProcess.map(CommandRunner.exitValue).flatten
 
   def isRunning = javaBackgroundProcess.exists(p => CommandRunner.exitValue(p).isEmpty)
@@ -56,9 +53,9 @@ class CommandRunner(console: ConsoleView) {
   //  )
 
   /**
-   *
-   * @see runJavaProcess
-   */
+    *
+    * @see runJavaProcess
+    */
   //  def runProcess(builder: ProcessBuilder) {
   //    backgroundProcess.foreach(_.destroy())
   //    console.clear()
@@ -67,12 +64,13 @@ class CommandRunner(console: ConsoleView) {
 
 
   /**
-   * Throws ThreadDeath, causing plugin to explode. Using java.lang.Process for now,
-   * which does not exhibit that behavior upon destruction.
-   *
-   * TODO: get this working and cut the java bs
-   * @see cancelJavaProcess
-   */
+    * Throws ThreadDeath, causing plugin to explode. Using java.lang.Process for now,
+    * which does not exhibit that behavior upon destruction.
+    *
+    * TODO: get this working and cut the java bs
+    *
+    * @see cancelJavaProcess
+    */
   //  def cancelProcess() {
   //    backgroundProcess.foreach(_.destroy())
   //    backgroundProcess = None
