@@ -2,28 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" name="Default" comment="Revive and modernize">
-      <change afterPath="$PROJECT_DIR$/.idea/hydra.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/scala_sdk_2_12_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sbt-launch-1.2.6.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/scala_compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/scala_library.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sbt-executor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sbt-executor.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/CommandRunner.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/CommandRunner.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/KillAction.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/KillAction.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/RunningAware.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/RunningAware.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtCommandAction.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtCommandAction.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtCommandGroup.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtCommandGroup.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtExecuteConsoleComponent.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtExecuteConsoleComponent.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtGroup.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtGroup.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/Util.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/Util.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/settings/ExecuteSbtConfigurable.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/settings/ExecuteSbtConfigurable.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/settings/ExecuteSbtSettings.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/settings/ExecuteSbtSettings.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/settings/ExecuteSbtSettingsForm.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/settings/ExecuteSbtSettingsForm.scala" afterDir="false" />
     </list>
     <ignored path="sbt-executor.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,19 +61,21 @@
     <session id="334566765">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="LICENSE" value="1" />
           <entry key="class" value="8" />
+          <entry key="gitignore" value="1" />
           <entry key="iml" value="1" />
           <entry key="java" value="5" />
           <entry key="md" value="1" />
           <entry key="scala" value="21" />
-          <entry key="xml" value="3" />
+          <entry key="xml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -102,14 +84,15 @@
           <entry key="IDEA_MODULE" value="1" />
           <entry key="JAVA" value="5" />
           <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PLAIN_TEXT" value="2" />
           <entry key="Scala" value="21" />
-          <entry key="XML" value="3" />
+          <entry key="XML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="LICENSE" value="2" />
+          <entry key="gitignore" value="24" />
           <entry key="md" value="3" />
           <entry key="scala" value="453" />
           <entry key="txt" value="40" />
@@ -118,7 +101,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="3" />
-          <entry key="PLAIN_TEXT" value="42" />
+          <entry key="PLAIN_TEXT" value="66" />
           <entry key="Scala" value="453" />
         </counts>
       </usages-collector>
@@ -129,14 +112,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtCommandAction.scala">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1292">
-              <caret line="68" column="49" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
-              <folding>
-                <element signature="e#34#53#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="304">
+              <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -144,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtCommandGroup.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+            <state relative-caret-position="304">
+              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
               <folding>
                 <element signature="e#34#128#0" expanded="true" />
               </folding>
@@ -156,8 +145,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/settings/ExecuteSbtSettingsForm.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="44" lean-forward="true" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+            <state relative-caret-position="133">
+              <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
               <folding>
                 <element signature="e#43#60#0" expanded="true" />
               </folding>
@@ -168,7 +157,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtExecuteConsoleComponent.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-456">
+            <state relative-caret-position="38">
               <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="e#34#60#0" expanded="true" />
@@ -189,7 +178,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/Util.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
+            <state relative-caret-position="76">
               <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
               <folding>
                 <element signature="e#34#88#0" expanded="true" />
@@ -210,8 +199,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/KillAction.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="266">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="e#34#100#0" expanded="true" />
               </folding>
@@ -222,8 +211,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/CommandRunner.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-564">
-              <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+            <state relative-caret-position="418">
+              <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
               <folding>
                 <element signature="e#34#104#0" expanded="true" />
               </folding>
@@ -276,6 +265,7 @@
         <option value="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtExecuteConsoleComponent.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/settings/ExecuteSbtSettingsForm.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtCommandAction.scala" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -302,22 +292,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="sbt-executor" type="58d84e3e:PackageViewProjectNode" />
-              <item name="sbt-executor" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="sbt-executor" type="58d84e3e:PackageViewProjectNode" />
-              <item name="sbt-executor" type="616d4139:PackageViewModuleNode" />
-              <item name="com.mle.idea.sbtexecutor" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -377,6 +351,22 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="sbt-executor" type="58d84e3e:PackageViewProjectNode" />
+              <item name="sbt-executor" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="sbt-executor" type="58d84e3e:PackageViewProjectNode" />
+              <item name="sbt-executor" type="616d4139:PackageViewModuleNode" />
+              <item name="com.mle.idea.sbtexecutor" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -389,7 +379,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540761962200" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540845018380" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="options.lastSelected" value="preferences.pluginManager" />
@@ -508,7 +498,8 @@
       <option name="presentableId" value="Default" />
       <updated>1369906072445</updated>
       <workItem from="1398777197580" duration="2000" />
-      <workItem from="1540756042552" duration="3996000" />
+      <workItem from="1540756042552" duration="4132000" />
+      <workItem from="1540844953449" duration="65000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1370010164001</created>
@@ -608,11 +599,18 @@
       <option name="project" value="LOCAL" />
       <updated>1378203807893</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Revive and modernize">
+      <created>1540761972533</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1540761972533</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3998000" />
+    <option name="totallyTimeSpent" value="4199000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -638,17 +636,15 @@
     <frame x="123" y="68" width="2280" height="1216" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Designer" />
-      <window_info id="Image Layers" />
-      <window_info id="Capture Tool" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.67075473" visible="true" weight="0.16532618" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.67075473" visible="true" weight="0.16666667" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info id="Designer" order="3" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Capture Tool" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.41611478" weight="0.3104982" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.83774835" visible="true" weight="0.3291815" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.83774835" weight="0.3291815" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.66887414" weight="0.34663865" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -660,16 +656,18 @@
       <window_info anchor="bottom" id="Messages" order="11" weight="0.29537368" />
       <window_info anchor="bottom" id="SBT Execute" order="12" sideWeight="0.33112583" side_tool="true" weight="0.38655463" />
       <window_info anchor="bottom" id="Terminal" order="13" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="SciView" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="SciView" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -700,14 +698,12 @@
     <MESSAGE value="removed dependency on java 7, added settings for vm options" />
     <MESSAGE value="docs" />
     <MESSAGE value="upd sbt to 0.13.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="upd sbt to 0.13.0" />
+    <MESSAGE value="Revive and modernize" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revive and modernize" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/openapi.jar!/com/intellij/ui/ToolbarDecorator.class" />
     <entry file="file://$PROJECT_DIR$/../idea-sbt-plugin/sbt-plugin/src/main/java/net/orfjackal/sbt/plugin/SbtRunnerComponent.java" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -715,14 +711,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/libraries/scala_sdk.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="76" selection-start-line="4" selection-start-column="76" selection-end-line="4" selection-end-column="76" />
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/scala_sdk.xml" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state>
+          <caret line="3" column="19" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="95">
@@ -731,19 +726,9 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="text-editor">
-        <state>
-          <caret line="3" column="19" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/scala_compiler.xml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-453" />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sbt-executor.iml">
       <provider selected="true" editor-type-id="text-editor">
@@ -773,9 +758,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/scriptFile.scala">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/scriptFile.scala" />
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/ui/components/JBList.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
@@ -824,9 +807,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/javax/swing/JOptionPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="563" column="25" selection-start-line="563" selection-start-column="25" selection-end-line="563" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtCommandAction.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
+          <folding>
+            <element signature="e#34#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtCommandGroup.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding>
+            <element signature="e#34#128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/settings/ExecuteSbtSettingsForm.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+          <folding>
+            <element signature="e#43#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtExecuteConsoleComponent.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-456">
+        <state relative-caret-position="38">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#34#60#0" expanded="true" />
@@ -843,20 +863,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/Util.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
+        <state relative-caret-position="76">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
           <folding>
             <element signature="e#34#88#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtCommandGroup.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-          <folding>
-            <element signature="e#34#128#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -870,8 +880,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/KillAction.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="266">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="e#34#100#0" expanded="true" />
           </folding>
@@ -880,38 +890,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/CommandRunner.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-564">
-          <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+        <state relative-caret-position="418">
+          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
           <folding>
             <element signature="e#34#104#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/javax/swing/JOptionPane.java">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="563" column="25" selection-start-line="563" selection-start-column="25" selection-end-line="563" selection-end-column="25" />
+        <state relative-caret-position="304">
+          <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/settings/ExecuteSbtSettingsForm.scala">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="44" lean-forward="true" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-          <folding>
-            <element signature="e#43#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtCommandAction.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="68" column="49" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
-          <folding>
-            <element signature="e#34#53#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="57">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
