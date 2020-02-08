@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" name="Default" comment="Fix release notes">
+    <list default="true" id="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" name="Default" comment="Update release notes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/META-INF/plugin.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -220,7 +221,7 @@
       <workItem from="1540844953449" duration="65000" />
       <workItem from="1581198693349" duration="419000" />
       <workItem from="1581199243152" duration="2514000" />
-      <workItem from="1581201826411" duration="290000" />
+      <workItem from="1581201826411" duration="343000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1370010164001</created>
@@ -345,7 +346,13 @@
       <option name="presentableId" value="LOCAL−00018" />
       <updated>1581202095870</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL−00019" summary="Update release notes">
+      <created>1581202130462</created>
+      <option name="number" value="LOCAL−00019" />
+      <option name="presentableId" value="LOCAL−00019" />
+      <updated>1581202130462</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -397,17 +404,18 @@
     <MESSAGE value="Resurrect plugin" />
     <MESSAGE value="Up version" />
     <MESSAGE value="Fix release notes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix release notes" />
+    <MESSAGE value="Update release notes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update release notes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="376" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581200245140">
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
     <state x="765" y="376" key="#com.intellij.execution.impl.EditConfigurationsDialog/-3809.0.1889.1080/62.0.2498.1440@62.0.2498.1440" timestamp="1581200245140" />
-    <state x="251" y="111" width="2030" height="1165" key="CommitChangelistDialog2" timestamp="1581202095363">
+    <state x="251" y="111" width="2030" height="1165" key="CommitChangelistDialog2" timestamp="1581202129949">
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
-    <state x="251" y="111" width="2030" height="1165" key="CommitChangelistDialog2/-3809.0.1889.1080/62.0.2498.1440@62.0.2498.1440" timestamp="1581202095363" />
+    <state x="251" y="111" width="2030" height="1165" key="CommitChangelistDialog2/-3809.0.1889.1080/62.0.2498.1440@62.0.2498.1440" timestamp="1581202129949" />
     <state x="1091" y="475" key="FileChooserDialogImpl" timestamp="1581200512236">
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
@@ -432,10 +440,10 @@
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
     <state x="791" y="295" key="SettingsEditor/-3809.0.1889.1080/62.0.2498.1440@62.0.2498.1440" timestamp="1581200749703" />
-    <state x="903" y="454" key="Vcs.Push.Dialog.v2" timestamp="1581202103551">
+    <state x="903" y="454" key="Vcs.Push.Dialog.v2" timestamp="1581202132746">
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
-    <state x="903" y="454" key="Vcs.Push.Dialog.v2/-3809.0.1889.1080/62.0.2498.1440@62.0.2498.1440" timestamp="1581202103551" />
+    <state x="903" y="454" key="Vcs.Push.Dialog.v2/-3809.0.1889.1080/62.0.2498.1440@62.0.2498.1440" timestamp="1581202132746" />
     <state x="1007" y="238" width="918" height="750" key="find.popup" timestamp="1581202075047">
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
