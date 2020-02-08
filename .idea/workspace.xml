@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" name="Default" comment="Resurrect plugin">
+    <list default="true" id="0cc7539c-2047-497e-ae6d-e6f14b8d5bcb" name="Default" comment="Up version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/META-INF/plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtExecuteConsoleComponent.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/mle/idea/sbtexecutor/SbtExecuteConsoleComponent.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +221,7 @@
       <workItem from="1540844953449" duration="65000" />
       <workItem from="1581198693349" duration="419000" />
       <workItem from="1581199243152" duration="2514000" />
-      <workItem from="1581201826411" duration="58000" />
+      <workItem from="1581201826411" duration="262000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1370010164001</created>
@@ -335,7 +334,13 @@
       <option name="presentableId" value="LOCAL−00016" />
       <updated>1581201666748</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL−00017" summary="Up version">
+      <created>1581201899289</created>
+      <option name="number" value="LOCAL−00017" />
+      <option name="presentableId" value="LOCAL−00017" />
+      <updated>1581201899289</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -385,17 +390,18 @@
     <MESSAGE value="upd sbt to 0.13.0" />
     <MESSAGE value="Revive and modernize" />
     <MESSAGE value="Resurrect plugin" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resurrect plugin" />
+    <MESSAGE value="Up version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Up version" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="376" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581200245140">
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
     <state x="765" y="376" key="#com.intellij.execution.impl.EditConfigurationsDialog/-3809.0.1889.1080/62.0.2498.1440@62.0.2498.1440" timestamp="1581200245140" />
-    <state x="251" y="111" width="2030" height="1165" key="CommitChangelistDialog2" timestamp="1581201665830">
+    <state x="251" y="111" width="2030" height="1165" key="CommitChangelistDialog2" timestamp="1581201898408">
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
-    <state x="251" y="111" width="2030" height="1165" key="CommitChangelistDialog2/-3809.0.1889.1080/62.0.2498.1440@62.0.2498.1440" timestamp="1581201665830" />
+    <state x="251" y="111" width="2030" height="1165" key="CommitChangelistDialog2/-3809.0.1889.1080/62.0.2498.1440@62.0.2498.1440" timestamp="1581201898408" />
     <state x="1091" y="475" key="FileChooserDialogImpl" timestamp="1581200512236">
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
@@ -420,13 +426,13 @@
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
     <state x="791" y="295" key="SettingsEditor/-3809.0.1889.1080/62.0.2498.1440@62.0.2498.1440" timestamp="1581200749703" />
-    <state x="903" y="454" key="Vcs.Push.Dialog.v2" timestamp="1581201668858">
+    <state x="903" y="454" key="Vcs.Push.Dialog.v2" timestamp="1581201900717">
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
-    <state x="903" y="454" key="Vcs.Push.Dialog.v2/-3809.0.1889.1080/62.0.2498.1440@62.0.2498.1440" timestamp="1581201668858" />
-    <state x="1007" y="238" width="918" height="750" key="find.popup" timestamp="1581201843665">
+    <state x="903" y="454" key="Vcs.Push.Dialog.v2/-3809.0.1889.1080/62.0.2498.1440@62.0.2498.1440" timestamp="1581201900717" />
+    <state x="1007" y="238" width="918" height="750" key="find.popup" timestamp="1581202075047">
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
-    <state x="1007" y="238" width="918" height="750" key="find.popup/-3809.0.1889.1080/62.0.2498.1440@62.0.2498.1440" timestamp="1581201843665" />
+    <state x="1007" y="238" width="918" height="750" key="find.popup/-3809.0.1889.1080/62.0.2498.1440@62.0.2498.1440" timestamp="1581202075047" />
   </component>
 </project>
