@@ -51,7 +51,7 @@ class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectCompon
   def newConsoleToolbarPanel: JPanel = {
     val panel = new JPanel(new GridLayout())
     val group = new DefaultActionGroup()
-    group add killAction
+    group.add(killAction)
     val toolbar = ActionManager
       .getInstance()
       .createActionToolbar(
@@ -59,7 +59,7 @@ class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectCompon
         group,
         false
       )
-    panel add toolbar.getComponent
+    panel.add(toolbar.getComponent)
     panel
   }
 
