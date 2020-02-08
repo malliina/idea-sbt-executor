@@ -9,19 +9,17 @@ import com.intellij.openapi.util.io.{FileUtil, StreamUtil}
 import scala.collection.JavaConverters.seqAsJavaListConverter
 
 class SbtCommandAction(sbtCommand: String, vmOptions: String)
-  extends AnAction(sbtCommand, s"Executes $sbtCommand", null)
+    extends AnAction(sbtCommand, s"Executes $sbtCommand", null)
     with EnabledWhenNotRunning {
 
   def actionPerformed(e: AnActionEvent): Unit = {
     val project = e.getProject
     val projectPathString = project.getBasePath
-    //    val workingDir = Paths get projectPathString
     val workingDir = new File(projectPathString)
     val commandParams = buildCommand(e, sbtCommand, vmOptions)
-    val consoleComponent = project.getComponent(classOf[SbtExecuteConsoleComponent])
+    val consoleComponent =
+      project.getComponent(classOf[SbtExecuteConsoleComponent])
     consoleComponent.show()
-    // scala
-    //    consoleComponent runProcess Process(commandParams, workingDir.toFile)
     // java
     val builder = new ProcessBuilder(commandParams.asJava)
     builder directory workingDir
@@ -29,18 +27,14 @@ class SbtCommandAction(sbtCommand: String, vmOptions: String)
     consoleComponent.commander runJavaProcess builder
   }
 
-  private def buildCommand(e: AnActionEvent, sbtCommand: String, vmOptions: String): Seq[String] = {
-//    val module = e.getData(LangDataKeys.MODULE)
+  private def buildCommand(e: AnActionEvent,
+                           sbtCommand: String,
+                           vmOptions: String): Seq[String] = {
     val java = "java"
     val vmOptionsSeq = vmOptions split " "
     val sbtJar = ensureSbtJarExists()
     // set SBT project if any is selected (helps for multi-module idea builds)
     val setProjectCommand = Seq.empty[String]
-//      if (module != null) {
-//        Seq("\"project " + module.getName + "\"")
-//      } else {
-//        Seq.empty[String]
-//      }
     Seq(java) ++
       vmOptionsSeq ++
       Seq("-jar", sbtJar.getAbsolutePath) ++
@@ -50,16 +44,17 @@ class SbtCommandAction(sbtCommand: String, vmOptions: String)
 
   // adapted from idea-sbt-plugin
   private def ensureSbtJarExists(): File = {
-    val jarName = "sbt-launch-1.2.6.jar"
-    //    val maybeSbtJar = Paths.get(PathManager.getSystemPath, "sbtexe", jarName)
-    val maybeSbtJar = new File(new File(PathManager.getSystemPath, "sbtexe"), jarName)
+    val jarName = "sbt-launch-1.3.8.jar"
+    val maybeSbtJar =
+      new File(new File(PathManager.getSystemPath, "sbtexe"), jarName)
     if (!maybeSbtJar.exists()) {
-      val is = classOf[SbtCommandAction].getClassLoader.getResourceAsStream(jarName)
+      val is =
+        classOf[SbtCommandAction].getClassLoader.getResourceAsStream(jarName)
       val bytes =
         try {
-          StreamUtil loadFromStream is
+          StreamUtil.loadFromStream(is)
         } finally {
-          StreamUtil closeStream is
+          StreamUtil.closeStream(is)
         }
       FileUtil.writeToFile(maybeSbtJar, bytes)
     }

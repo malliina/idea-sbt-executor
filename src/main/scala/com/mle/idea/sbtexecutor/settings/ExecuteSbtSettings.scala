@@ -11,13 +11,16 @@ class ExecuteSbtSettings {
 
 object ExecuteSbtSettings {
   val defaultCommands = Seq("compile", "test", "clean")
-  val defaultVmOptions = "-Xmx512M -XX:MaxPermSize=256M -Dsbt.log.noformat=true"
+  val defaultVmOptions = "-Xmx512M -Dsbt.log.noformat=true"
   val settingsKey = "sbt-executor-commands"
   val vmOptionsKey = "sbt-executor-vmoptions"
 
-  def save(settings: ExecuteSbtSettings) {
+  def save(settings: ExecuteSbtSettings): Unit = {
     val appProps = PropertiesComponent.getInstance()
-    appProps.setValues(settingsKey, settings.commands.map(Option.apply).flatten.toArray)
+    appProps.setValues(
+      settingsKey,
+      settings.commands.map(Option.apply).flatten.toArray
+    )
     appProps.setValue(vmOptionsKey, settings.vmOptions)
     SbtCommandGroup.reload()
   }

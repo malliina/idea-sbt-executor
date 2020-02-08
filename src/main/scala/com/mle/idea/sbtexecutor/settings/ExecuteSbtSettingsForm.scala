@@ -4,7 +4,12 @@ import java.awt._
 
 import com.intellij.openapi.ui.{LabeledComponent, Messages}
 import com.intellij.ui.components.{JBLabel, JBList, JBPanel}
-import com.intellij.ui.{AnActionButton, AnActionButtonRunnable, CollectionListModel, ToolbarDecorator}
+import com.intellij.ui.{
+  AnActionButton,
+  AnActionButtonRunnable,
+  CollectionListModel,
+  ToolbarDecorator
+}
 import javax.swing._
 
 class ExecuteSbtSettingsForm {
@@ -28,7 +33,8 @@ class ExecuteSbtSettingsForm {
   decorator.setEditAction(new AnActionButtonRunnable {
     def run(e: AnActionButton) {
       // show dialog, get name
-      val newValue = Messages.showInputDialog("Edit SBT command", "Edit", null, sbtCommandList.getSelectedValue, null)
+      val newValue = Messages
+        .showInputDialog("Edit SBT command", "Edit", null, sbtCommandList.getSelectedValue, null)
       if (newValue != null) {
         listModel.setElementAt(newValue, sbtCommandList.getSelectedIndex)
       }
@@ -54,7 +60,7 @@ class ExecuteSbtSettingsForm {
   alignLeft(commandsPanel, vmOptionsLabel, vmOptionsText)
 
   val comp = new JBPanel(new BorderLayout())
-  comp add(contentPane, BorderLayout.NORTH)
+  comp add (contentPane, BorderLayout.NORTH)
 
   def alignLeft(comps: JComponent*) {
     comps foreach (_ setAlignmentX Component.LEFT_ALIGNMENT)

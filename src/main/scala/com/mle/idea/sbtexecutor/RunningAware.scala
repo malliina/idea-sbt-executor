@@ -5,7 +5,7 @@ import com.intellij.openapi.actionSystem.{AnAction, AnActionEvent}
 trait RunningAware extends AnAction {
   def enableWhenRunning: Boolean
 
-  override def update(e: AnActionEvent) {
+  override def update(e: AnActionEvent): Unit = {
     val runnerOpt = Util.runnerOpt(e)
     val isRunning = runnerOpt.exists(_.commander.isRunning)
     val shouldEnable = isRunning == enableWhenRunning

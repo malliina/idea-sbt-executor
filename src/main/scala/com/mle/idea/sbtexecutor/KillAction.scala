@@ -5,12 +5,19 @@ import com.intellij.openapi.util.IconLoader
 import com.intellij.execution.ui.ConsoleViewContentType
 
 class KillAction
-  extends AnAction("Cancel command", null, IconLoader.getIcon("/debugger/killProcess.png"))
-  with EnabledWhenRunning {
+    extends AnAction(
+      "Cancel command",
+      null,
+      IconLoader.getIcon("/debugger/killProcess.png")
+    )
+    with EnabledWhenRunning {
 
-  def actionPerformed(e: AnActionEvent) {
+  def actionPerformed(e: AnActionEvent): Unit = {
     val console = Util.runner(e)
     console.commander.cancelJavaProcess()
-    console.console.print("Canceled by user." + CommandRunner.newLine, ConsoleViewContentType.ERROR_OUTPUT)
+    console.console.print(
+      "Canceled by user." + CommandRunner.newLine,
+      ConsoleViewContentType.ERROR_OUTPUT
+    )
   }
 }

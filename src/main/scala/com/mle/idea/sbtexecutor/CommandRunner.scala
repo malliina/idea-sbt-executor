@@ -17,11 +17,13 @@ class CommandRunner(console: ConsoleView) {
   /**
     * @return the exit value wrapped in an Option or None if the process is running, was canceled or has not been started
     */
-  def exitValue: Option[Int] = javaBackgroundProcess.map(CommandRunner.exitValue).flatten
+  def exitValue: Option[Int] =
+    javaBackgroundProcess.flatMap(CommandRunner.exitValue)
 
-  def isRunning = javaBackgroundProcess.exists(p => CommandRunner.exitValue(p).isEmpty)
+  def isRunning: Boolean =
+    javaBackgroundProcess.exists(p => CommandRunner.exitValue(p).isEmpty)
 
-  def runJavaProcess(builder: java.lang.ProcessBuilder) {
+  def runJavaProcess(builder: java.lang.ProcessBuilder): Unit = {
     javaBackgroundProcess.foreach(_.destroy())
     console.clear()
     val commandString = builder.command().mkString(" ") + newLine
@@ -31,16 +33,17 @@ class CommandRunner(console: ConsoleView) {
     Future {
       val is = Source.fromInputStream(process.getInputStream)
       try {
-        is.getLines().foreach(line => {
-          console print(line + newLine, ConsoleViewContentType.NORMAL_OUTPUT)
-        })
+        is.getLines()
+          .foreach(line => {
+            console print (line + newLine, ConsoleViewContentType.NORMAL_OUTPUT)
+          })
       } finally {
         is.close()
       }
     }
   }
 
-  def cancelJavaProcess() {
+  def cancelJavaProcess(): Unit = {
     javaBackgroundProcess.foreach(_.destroy())
     javaBackgroundProcess = None
   }
@@ -53,7 +56,6 @@ class CommandRunner(console: ConsoleView) {
   //  )
 
   /**
-    *
     * @see runJavaProcess
     */
   //  def runProcess(builder: ProcessBuilder) {
@@ -61,8 +63,6 @@ class CommandRunner(console: ConsoleView) {
   //    console.clear()
   //    backgroundProcess = Some(builder run consoleLogger)
   //  }
-
-
   /**
     * Throws ThreadDeath, causing plugin to explode. Using java.lang.Process for now,
     * which does not exhibit that behavior upon destruction.
