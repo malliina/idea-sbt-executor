@@ -5,7 +5,7 @@
     <vendor email="malliina123@gmail.com" url="https://github.com/malliina/sbt-executor">Skogberg Labs</vendor>
 
     <description><![CDATA[
-      Allows you to execute Simple Build Tool (SBT) commands through a menu in IDEA.<br>
+      Execute sbt commands through a menu in IDEA.<br>
       SBT is a build tool typically used for Scala projects.
       ]]></description>
 
