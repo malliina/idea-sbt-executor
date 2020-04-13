@@ -70,11 +70,13 @@ class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectCompon
     registerConsole(console, TOOL_WINDOW_ID)
   }
 
-  def unregisterConsole(): Unit = {
+  def unregisterConsole(): Unit = try {
     val toolWindowManager = ToolWindowManager.getInstance(project)
     if (toolWindowManager != null && toolWindowManager.getToolWindow(TOOL_WINDOW_ID) != null) {
       toolWindowManager.unregisterToolWindow(TOOL_WINDOW_ID)
     }
+  } catch {
+    case e: Exception =>
   }
 
   private def setVisible(visible: Boolean): Unit = {

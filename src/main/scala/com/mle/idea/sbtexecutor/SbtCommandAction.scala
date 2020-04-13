@@ -9,8 +9,8 @@ import com.intellij.openapi.util.io.{FileUtil, StreamUtil}
 import scala.collection.JavaConverters.seqAsJavaListConverter
 
 class SbtCommandAction(sbtCommand: String, vmOptions: String)
-    extends AnAction(sbtCommand, s"Executes $sbtCommand", null)
-    with EnabledWhenNotRunning {
+  extends AnAction(sbtCommand, s"Executes $sbtCommand", null)
+  with EnabledWhenNotRunning {
 
   def actionPerformed(e: AnActionEvent): Unit = {
     val project = e.getProject
@@ -27,9 +27,7 @@ class SbtCommandAction(sbtCommand: String, vmOptions: String)
     consoleComponent.commander runJavaProcess builder
   }
 
-  private def buildCommand(e: AnActionEvent,
-                           sbtCommand: String,
-                           vmOptions: String): Seq[String] = {
+  private def buildCommand(e: AnActionEvent, sbtCommand: String, vmOptions: String): Seq[String] = {
     val java = "java"
     val vmOptionsSeq = vmOptions split " "
     val sbtJar = ensureSbtJarExists()
@@ -44,18 +42,15 @@ class SbtCommandAction(sbtCommand: String, vmOptions: String)
 
   // adapted from idea-sbt-plugin
   private def ensureSbtJarExists(): File = {
-    val jarName = "sbt-launch-1.3.8.jar"
+    val jarName = "sbt-launch-1.3.9.jar"
     val maybeSbtJar =
       new File(new File(PathManager.getSystemPath, "sbtexe"), jarName)
     if (!maybeSbtJar.exists()) {
       val is =
         classOf[SbtCommandAction].getClassLoader.getResourceAsStream(jarName)
       val bytes =
-        try {
-          StreamUtil.loadFromStream(is)
-        } finally {
-          StreamUtil.closeStream(is)
-        }
+        try StreamUtil.loadFromStream(is)
+        finally StreamUtil.closeStream(is)
       FileUtil.writeToFile(maybeSbtJar, bytes)
     }
     maybeSbtJar

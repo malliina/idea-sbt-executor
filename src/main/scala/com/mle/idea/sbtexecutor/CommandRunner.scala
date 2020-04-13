@@ -33,10 +33,9 @@ class CommandRunner(console: ConsoleView) {
     Future {
       val is = Source.fromInputStream(process.getInputStream)
       try {
-        is.getLines()
-          .foreach(line => {
-            console print (line + newLine, ConsoleViewContentType.NORMAL_OUTPUT)
-          })
+        is.getLines().foreach { line =>
+          console print (line + newLine, ConsoleViewContentType.NORMAL_OUTPUT)
+        }
       } finally {
         is.close()
       }

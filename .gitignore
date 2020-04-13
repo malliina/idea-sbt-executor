@@ -1,3 +1,4 @@
 target/
 *.zip
 .idea/workspace.xml
+out
