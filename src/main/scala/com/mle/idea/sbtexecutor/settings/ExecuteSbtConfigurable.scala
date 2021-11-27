@@ -11,7 +11,7 @@ class ExecuteSbtConfigurable extends Configurable {
 
   override def createComponent(): JComponent = form.comp
 
-  override def isModified: Boolean =
+  override def isModified(): Boolean =
     settings.commands != form.commands.asScala || settings.vmOptions != form.vmOptions
 
   override def apply(): Unit = {
@@ -23,7 +23,7 @@ class ExecuteSbtConfigurable extends Configurable {
   override def reset(): Unit =
     form.setModel(settings)
 
-  override def disposeUIResources(): Unit = {}
+  override def disposeUIResources(): Unit = ()
   override def getDisplayName: String = "SBT Executor"
   override def getHelpTopic: String = null
 }
