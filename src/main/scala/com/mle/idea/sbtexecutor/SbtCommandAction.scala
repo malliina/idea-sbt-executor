@@ -1,7 +1,6 @@
 package com.mle.idea.sbtexecutor
 
-import java.io.File
-
+import java.io.{File, IOException}
 import com.intellij.openapi.actionSystem.{AnAction, AnActionEvent}
 import com.intellij.openapi.application.PathManager
 import com.intellij.openapi.util.io.{FileUtil, StreamUtil}
@@ -42,16 +41,21 @@ class SbtCommandAction(sbtCommand: String, vmOptions: String)
 
   // adapted from idea-sbt-plugin
   private def ensureSbtJarExists(): File = {
-    val jarName = "sbt-launch-1.3.9.jar"
+    val jarName = "sbt-launch-1.5.5.jar"
     val maybeSbtJar =
       new File(new File(PathManager.getSystemPath, "sbtexe"), jarName)
     if (!maybeSbtJar.exists()) {
       val is =
-        classOf[SbtCommandAction].getClassLoader.getResourceAsStream(jarName)
-      val bytes =
-        try StreamUtil.loadFromStream(is)
-        finally StreamUtil.closeStream(is)
-      FileUtil.writeToFile(maybeSbtJar, bytes)
+        Option(classOf[SbtCommandAction].getClassLoader.getResourceAsStream(jarName))
+      is.map { stream =>
+          val bytes =
+            try StreamUtil.readBytes(stream)
+            finally stream.close()
+          FileUtil.writeToFile(maybeSbtJar, bytes)
+        }
+        .getOrElse {
+          throw new IOException(s"Not found: '$jarName'.")
+        }
     }
     maybeSbtJar
   }

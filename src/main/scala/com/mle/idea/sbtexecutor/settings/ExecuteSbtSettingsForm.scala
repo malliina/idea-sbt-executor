@@ -31,7 +31,7 @@ class ExecuteSbtSettingsForm {
   private val sbtCommandList: JList[String] = new JBList(listModel)
   private val decorator = ToolbarDecorator createDecorator sbtCommandList
   decorator.setEditAction(new AnActionButtonRunnable {
-    def run(e: AnActionButton) {
+    def run(e: AnActionButton): Unit = {
       // show dialog, get name
       val newValue = Messages
         .showInputDialog("Edit SBT command", "Edit", null, sbtCommandList.getSelectedValue, null)
@@ -41,7 +41,7 @@ class ExecuteSbtSettingsForm {
     }
   })
   decorator.setAddAction(new AnActionButtonRunnable {
-    def run(e: AnActionButton) {
+    def run(e: AnActionButton): Unit = {
       // show dialog, get name
       val addedCommand = Messages.showInputDialog("Add SBT command", "Input", null)
       listModel add addedCommand
@@ -62,7 +62,6 @@ class ExecuteSbtSettingsForm {
   val comp = new JBPanel(new BorderLayout())
   comp add (contentPane, BorderLayout.NORTH)
 
-  def alignLeft(comps: JComponent*) {
-    comps foreach (_ setAlignmentX Component.LEFT_ALIGNMENT)
-  }
+  def alignLeft(comps: JComponent*): Unit =
+    comps.foreach(_ setAlignmentX Component.LEFT_ALIGNMENT)
 }

@@ -1,21 +1,23 @@
 package com.mle.idea.sbtexecutor
 
-import java.awt.GridLayout
-
 import com.intellij.execution.filters.TextConsoleBuilderFactory
 import com.intellij.execution.ui.ConsoleView
 import com.intellij.openapi.actionSystem.{ActionManager, DefaultActionGroup}
 import com.intellij.openapi.components.AbstractProjectComponent
-import com.intellij.openapi.project.Project
+import com.intellij.openapi.project.{DumbAware, Project}
 import com.intellij.openapi.startup.StartupManager
 import com.intellij.openapi.ui.SimpleToolWindowPanel
 import com.intellij.openapi.util.Disposer
 import com.intellij.openapi.wm.{ToolWindowAnchor, ToolWindowManager}
 import com.intellij.ui.content.ContentFactory
 import com.mle.idea.sbtexecutor.SbtExecuteConsoleComponent._
-import javax.swing.JPanel
 
-class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectComponent(project) {
+import java.awt.GridLayout
+import javax.swing.{JComponent, JPanel}
+
+class SbtExecuteConsoleComponent(project: Project)
+  extends AbstractProjectComponent(project)
+  with DumbAware {
   private val builder =
     TextConsoleBuilderFactory.getInstance().createBuilder(project)
   val console = builder.getConsole
@@ -40,7 +42,7 @@ class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectCompon
       val windowPanel = new SimpleToolWindowPanel(false, true)
       windowPanel.setContent(view.getComponent)
       // toolbar with kill button
-      windowPanel.setToolbar(newConsoleToolbarPanel)
+      windowPanel.setToolbar(newConsoleToolbarPanel(view.getComponent))
       val content = ContentFactory.SERVICE
         .getInstance()
         .createContent(windowPanel, "Output", true)
@@ -48,7 +50,7 @@ class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectCompon
     }
   }
 
-  def newConsoleToolbarPanel: JPanel = {
+  def newConsoleToolbarPanel(target: JComponent): JPanel = {
     val panel = new JPanel(new GridLayout())
     val group = new DefaultActionGroup()
     group.add(killAction)
@@ -59,6 +61,8 @@ class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectCompon
         group,
         false
       )
+
+    toolbar.setTargetComponent(target)
     panel.add(toolbar.getComponent)
     panel
   }
@@ -66,9 +70,7 @@ class SbtExecuteConsoleComponent(project: Project) extends AbstractProjectCompon
   /**
     * Attaches the "SBT Execute" console to the bottom.
     */
-  def registerConsole(): Unit = {
-    registerConsole(console, TOOL_WINDOW_ID)
-  }
+  def registerConsole(): Unit = registerConsole(console, TOOL_WINDOW_ID)
 
   def unregisterConsole(): Unit = try {
     val toolWindowManager = ToolWindowManager.getInstance(project)

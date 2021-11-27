@@ -5,7 +5,7 @@ import com.intellij.openapi.project.Project
 
 object Util {
   // both e.getProject and project.getComponent may return null
-  def runnerOpt(e: AnActionEvent) =
+  def runnerOpt(e: AnActionEvent): Option[SbtExecuteConsoleComponent] =
     Option(Option(e.getProject).map(runner)).flatten
 
   def runner(e: AnActionEvent): SbtExecuteConsoleComponent =

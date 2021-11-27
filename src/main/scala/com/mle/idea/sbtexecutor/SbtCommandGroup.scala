@@ -12,7 +12,7 @@ class SbtCommandGroup extends ActionGroup {
     val commands = ExecuteSbtSettings.loadCommands
     val actionBuilder: String => SbtCommandAction =
       new SbtCommandAction(_, ExecuteSbtSettings.loadVmOptions)
-    val actions = commands map actionBuilder
+    val actions = commands.map(actionBuilder)
     actions.toArray
   }
 

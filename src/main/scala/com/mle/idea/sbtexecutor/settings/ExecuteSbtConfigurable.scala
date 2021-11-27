@@ -19,9 +19,8 @@ class ExecuteSbtConfigurable(appSettings: ExecuteSbtSettings) extends Configurab
     ExecuteSbtSettings.save(appSettings)
   }
 
-  override def reset(): Unit = {
+  override def reset(): Unit =
     form.setModel(appSettings)
-  }
 
   override def disposeUIResources(): Unit = {}
 

@@ -34,7 +34,7 @@ class CommandRunner(console: ConsoleView) {
       val is = Source.fromInputStream(process.getInputStream)
       try {
         is.getLines().foreach { line =>
-          console print (line + newLine, ConsoleViewContentType.NORMAL_OUTPUT)
+          console.print(line + newLine, ConsoleViewContentType.NORMAL_OUTPUT)
         }
       } finally {
         is.close()

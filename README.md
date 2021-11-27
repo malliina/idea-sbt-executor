@@ -11,8 +11,9 @@ Install *SBT Executor* from IntelliJ's Plugins section.
 ## Development
 
 1. Open this project in IntelliJ.
-1. Make sure the project SDK is IntelliJ IDEA (in Project Structure -> Project Settings -> Project).
-1. A run configuration should exist that launches the plugin in another IntelliJ window.
+2. Make sure the project SDK is IntelliJ IDEA (in Project Structure -> Project Settings -> Project).
+3. Make sure the SDK uses JDK version 11.
+4. A run configuration should exist that launches the plugin in another IntelliJ window.
 
 ### Releasing a New Version
 
