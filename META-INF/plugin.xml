@@ -1,4 +1,5 @@
 <idea-plugin>
+    <depends>org.intellij.scala</depends>
     <id>com.mle.idea.sbtexecutor</id>
     <name>SBT Executor</name>
     <version>1.4.0</version>
@@ -32,6 +33,7 @@
     </actions>
     <extensions defaultExtensionNs="com.intellij">
         <projectConfigurable instance="com.mle.idea.sbtexecutor.settings.ExecuteSbtConfigurable"
+                             displayName="SBT Executor"
                              order="last"/>
     </extensions>
     <application-components>

@@ -1,7 +1,5 @@
 package com.mle.idea.sbtexecutor.settings
 
-import java.awt._
-
 import com.intellij.openapi.ui.{LabeledComponent, Messages}
 import com.intellij.ui.components.{JBLabel, JBList, JBPanel}
 import com.intellij.ui.{
@@ -10,13 +8,15 @@ import com.intellij.ui.{
   CollectionListModel,
   ToolbarDecorator
 }
+
+import java.awt._
 import javax.swing._
 
 class ExecuteSbtSettingsForm {
   private val listModel = new CollectionListModel[String]("compile", "clean")
   private val vmOptionsLabel = new JBLabel("VM parameters", SwingConstants.LEFT)
   private val vmOptionsText = new JTextField
-  vmOptionsLabel setLabelFor vmOptionsText
+  vmOptionsLabel.setLabelFor(vmOptionsText)
 
   def commands = listModel.getItems
 
@@ -24,8 +24,8 @@ class ExecuteSbtSettingsForm {
 
   def setModel(settings: ExecuteSbtSettings): Unit = {
     listModel.removeAll()
-    settings.commands foreach (c => listModel add c)
-    vmOptionsText setText settings.vmOptions
+    settings.commands.foreach(c => listModel.add(c))
+    vmOptionsText.setText(settings.vmOptions)
   }
 
   private val sbtCommandList: JList[String] = new JBList(listModel)
@@ -52,11 +52,11 @@ class ExecuteSbtSettingsForm {
   private val commandsPanel = LabeledComponent.create(panel, "SBT commands in menu")
 
   val contentPane = new JBPanel()
-  contentPane setLayout new BoxLayout(contentPane, BoxLayout.Y_AXIS)
-  contentPane add commandsPanel
-  contentPane add Box.createRigidArea(new Dimension(0, 10))
-  contentPane add vmOptionsLabel
-  contentPane add vmOptionsText
+  contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS))
+  contentPane.add(commandsPanel)
+  contentPane.add(Box.createRigidArea(new Dimension(0, 10)))
+  contentPane.add(vmOptionsLabel)
+  contentPane.add(vmOptionsText)
   alignLeft(commandsPanel, vmOptionsLabel, vmOptionsText)
 
   val comp = new JBPanel(new BorderLayout())

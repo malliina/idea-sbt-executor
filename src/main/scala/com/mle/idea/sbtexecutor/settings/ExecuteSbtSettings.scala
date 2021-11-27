@@ -27,12 +27,12 @@ object ExecuteSbtSettings {
 
   def loadCommands: Seq[String] = {
     val appProps = PropertiesComponent.getInstance()
-    val maybeCommands: Seq[String] = appProps getValues settingsKey
-    Option(maybeCommands) getOrElse defaultCommands
+    val maybeCommands: Seq[String] = appProps.getValues(settingsKey)
+    Option(maybeCommands).getOrElse(defaultCommands)
   }
 
   def loadVmOptions: String = {
     val appProps = PropertiesComponent.getInstance()
-    Option(appProps getValue vmOptionsKey) getOrElse defaultVmOptions
+    Option(appProps.getValue(vmOptionsKey)).getOrElse(defaultVmOptions)
   }
 }
