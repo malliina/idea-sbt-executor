@@ -42,10 +42,4 @@
             <implementation-class>com.mle.idea.sbtexecutor.settings.ExecuteSbtSettings</implementation-class>
         </component>
     </application-components>
-    <project-components>
-        <component>
-            <implementation-class>com.mle.idea.sbtexecutor.SbtExecuteConsoleComponent</implementation-class>
-            <loadForDefaultProject/>
-        </component>
-    </project-components>
 </idea-plugin>

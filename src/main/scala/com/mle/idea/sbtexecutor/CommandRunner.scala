@@ -46,34 +46,6 @@ class CommandRunner(console: ConsoleView) {
     javaBackgroundProcess.foreach(_.destroy())
     javaBackgroundProcess = None
   }
-
-  //  private var backgroundProcess: Option[Process] = None
-
-  //  private val consoleLogger = ProcessLogger(
-  //    out => console.print(out + "\n", ConsoleViewContentType.NORMAL_OUTPUT),
-  //    err => console.print(err + "\n", ConsoleViewContentType.ERROR_OUTPUT)
-  //  )
-
-  /**
-    * @see runJavaProcess
-    */
-  //  def runProcess(builder: ProcessBuilder) {
-  //    backgroundProcess.foreach(_.destroy())
-  //    console.clear()
-  //    backgroundProcess = Some(builder run consoleLogger)
-  //  }
-  /**
-    * Throws ThreadDeath, causing plugin to explode. Using java.lang.Process for now,
-    * which does not exhibit that behavior upon destruction.
-    *
-    * TODO: get this working and cut the java bs
-    *
-    * @see cancelJavaProcess
-    */
-  //  def cancelProcess() {
-  //    backgroundProcess.foreach(_.destroy())
-  //    backgroundProcess = None
-  //  }
 }
 
 object CommandRunner {

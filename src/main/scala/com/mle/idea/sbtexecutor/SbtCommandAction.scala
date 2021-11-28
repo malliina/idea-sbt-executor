@@ -1,29 +1,102 @@
 package com.mle.idea.sbtexecutor
 
-import java.io.{File, IOException}
-import com.intellij.openapi.actionSystem.{AnAction, AnActionEvent}
+import com.intellij.execution.filters.TextConsoleBuilderFactory
+import com.intellij.openapi.actionSystem.{
+  ActionManager,
+  AnAction,
+  AnActionEvent,
+  DefaultActionGroup
+}
 import com.intellij.openapi.application.PathManager
+import com.intellij.openapi.project.Project
+import com.intellij.openapi.ui.SimpleToolWindowPanel
 import com.intellij.openapi.util.io.{FileUtil, StreamUtil}
+import com.intellij.openapi.wm.{
+  RegisterToolWindowTask,
+  ToolWindow,
+  ToolWindowAnchor,
+  ToolWindowManager
+}
+import com.intellij.ui.content.ContentFactory
+import com.mle.idea.sbtexecutor.SbtCommandAction.{ACTION_TOOLBAR_ID, TOOL_WINDOW_ID}
 
+import java.awt.GridLayout
+import java.io.{File, IOException}
+import javax.swing.{JComponent, JPanel}
 import scala.collection.JavaConverters.seqAsJavaListConverter
 
+object SbtCommandAction {
+  val ACTION_TOOLBAR_ID = "SbtExecuteActionToolbar"
+  val TOOL_WINDOW_ID = "SBT Execute"
+
+  var commander: Option[CommandRunner] = None
+}
+
 class SbtCommandAction(sbtCommand: String, vmOptions: String)
-  extends AnAction(sbtCommand, s"Executes $sbtCommand", null)
-  with EnabledWhenNotRunning {
+  extends AnAction(sbtCommand, s"Executes $sbtCommand", null) {
+
+  override def update(e: AnActionEvent): Unit = {
+    e.getPresentation.setEnabled(SbtCommandAction.commander.forall(c => !c.isRunning))
+  }
 
   def actionPerformed(e: AnActionEvent): Unit = {
     val project = e.getProject
     val projectPathString = project.getBasePath
     val workingDir = new File(projectPathString)
     val commandParams = buildCommand(e, sbtCommand, vmOptions)
-    val consoleComponent =
-      project.getComponent(classOf[SbtExecuteConsoleComponent])
-    consoleComponent.show()
+    showToolWindow(project)
     // java
     val builder = new ProcessBuilder(commandParams.asJava)
-    builder directory workingDir
-    builder redirectErrorStream true
-    consoleComponent.commander runJavaProcess builder
+    builder.directory(workingDir)
+    builder.redirectErrorStream(true)
+    SbtCommandAction.commander.foreach { c =>
+      c.runJavaProcess(builder)
+    }
+  }
+
+  private def showToolWindow(project: Project): ToolWindow = {
+    val manager = ToolWindowManager.getInstance(project)
+    val toolWindow = Option(manager.getToolWindow(TOOL_WINDOW_ID)).getOrElse {
+      val window = manager.registerToolWindow(
+        RegisterToolWindowTask.notClosable(TOOL_WINDOW_ID, ToolWindowAnchor.BOTTOM)
+      )
+      val windowPanel = new SimpleToolWindowPanel(false, true)
+      val builder = TextConsoleBuilderFactory.getInstance().createBuilder(project)
+      val console = builder.getConsole
+      val commander = new CommandRunner(console)
+      SbtCommandAction.commander = Option(commander)
+      windowPanel.setContent(console.getComponent)
+      // toolbar with kill button
+      windowPanel.setToolbar(
+        newConsoleToolbarPanel(console.getComponent, new KillAction(console, commander))
+      )
+      val content = ContentFactory.SERVICE
+        .getInstance()
+        .createContent(windowPanel, "Output", true)
+      content.setDisposer(() => {
+        commander.cancelJavaProcess()
+      })
+      window.getContentManager.addContent(content)
+      window
+    }
+    toolWindow.show(null)
+    toolWindow
+  }
+
+  def newConsoleToolbarPanel(target: JComponent, killAction: KillAction): JPanel = {
+    val panel = new JPanel(new GridLayout())
+    val group = new DefaultActionGroup()
+    group.add(killAction)
+    val toolbar = ActionManager
+      .getInstance()
+      .createActionToolbar(
+        ACTION_TOOLBAR_ID,
+        group,
+        false
+      )
+    toolbar.setTargetComponent(target)
+    panel.add(toolbar.getComponent)
+    panel
   }
 
   private def buildCommand(e: AnActionEvent, sbtCommand: String, vmOptions: String): Seq[String] = {
@@ -59,21 +132,4 @@ class SbtCommandAction(sbtCommand: String, vmOptions: String)
     }
     maybeSbtJar
   }
-
-  //  def executeSbtCommand(commandParams: Seq[String], workingDir: Path, logger: ProcessLogger) {
-  //    val commandString = commandParams mkString " "
-  //    // print commandParams prior to execution
-  //    logger out commandString
-  //    try {
-  //      val builder = Process(commandParams, workingDir.toFile)
-  //      val backgroundProcess = builder run logger
-  //      //      Future(backgroundProcess.exitValue()).map(exitValue => {
-  //      //        logger out s"Command: '$sbtCommand' completed with exit value: $exitValue"
-  //      //        SbtCommandAction.remove(backgroundProcess)
-  //      //      })
-  //    } catch {
-  //      case re: RuntimeException =>
-  //        logger out re.getMessage
-  //    }
-  //  }
 }
