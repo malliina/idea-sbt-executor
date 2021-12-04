@@ -1,11 +1,12 @@
 package com.mle.idea.sbtexecutor.settings
 
 import com.intellij.openapi.options.Configurable
+import com.intellij.openapi.project.Project
 
 import javax.swing.JComponent
 import scala.collection.JavaConverters.asScalaBufferConverter
 
-class ExecuteSbtConfigurable extends Configurable {
+class ExecuteSbtConfigurable(project: Project) extends Configurable {
   val form = new ExecuteSbtSettingsForm
   val settings = new ExecuteSbtSettings
 
