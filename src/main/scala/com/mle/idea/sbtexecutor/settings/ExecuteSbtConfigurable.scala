@@ -12,7 +12,7 @@ class ExecuteSbtConfigurable(project: Project) extends Configurable {
 
   override def createComponent(): JComponent = form.comp
 
-  override def isModified(): Boolean =
+  override def isModified: Boolean =
     settings.commands != form.commands.asScala || settings.vmOptions != form.vmOptions
 
   override def apply(): Unit = {

@@ -1,6 +1,5 @@
 <idea-plugin>
     <depends>com.intellij.modules.platform</depends>
-    <depends>org.intellij.scala</depends>
     <id>com.mle.idea.sbtexecutor</id>
     <name>SBT Executor</name>
     <version>1.4.1</version>
