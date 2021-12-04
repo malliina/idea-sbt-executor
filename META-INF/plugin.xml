@@ -2,7 +2,7 @@
     <depends>com.intellij.modules.platform</depends>
     <id>com.mle.idea.sbtexecutor</id>
     <name>SBT Executor</name>
-    <version>1.4.1</version>
+    <version>1.4.2</version>
     <vendor email="malliina123@gmail.com" url="https://github.com/malliina/sbt-executor">Skogberg Labs</vendor>
 
     <description><![CDATA[

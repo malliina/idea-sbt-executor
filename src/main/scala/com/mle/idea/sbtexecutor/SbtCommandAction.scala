@@ -10,7 +10,7 @@ import com.intellij.openapi.actionSystem.{
 import com.intellij.openapi.application.PathManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.SimpleToolWindowPanel
-import com.intellij.openapi.util.io.{FileUtil, StreamUtil}
+import com.intellij.openapi.util.io.FileUtil
 import com.intellij.openapi.wm.{
   RegisterToolWindowTask,
   ToolWindow,
@@ -18,10 +18,12 @@ import com.intellij.openapi.wm.{
   ToolWindowManager
 }
 import com.intellij.ui.content.ContentFactory
+import com.intellij.util.PathUtil
 import com.mle.idea.sbtexecutor.SbtCommandAction.{ACTION_TOOLBAR_ID, TOOL_WINDOW_ID}
 
 import java.awt.GridLayout
-import java.io.{File, IOException}
+import java.io.{ByteArrayOutputStream, File, IOException, InputStream}
+import java.nio.file.{Files, Paths}
 import javax.swing.{JComponent, JPanel}
 import scala.collection.JavaConverters.seqAsJavaListConverter
 
@@ -115,21 +117,47 @@ class SbtCommandAction(sbtCommand: String, vmOptions: String)
   // adapted from idea-sbt-plugin
   private def ensureSbtJarExists(): File = {
     val jarName = "sbt-launch-1.5.5.jar"
+    val basePath = PathUtil.getJarPathForClass(classOf[SbtCommandAction])
+    val maybeFile = Paths.get(basePath).resolve(jarName)
     val maybeSbtJar =
-      new File(new File(PathManager.getSystemPath, "sbtexe"), jarName)
+      new File(new File(PathManager.getSystemPath, "sbtx"), jarName)
     if (!maybeSbtJar.exists()) {
+      val loader = classOf[SbtCommandAction].getClassLoader
       val is =
-        Option(classOf[SbtCommandAction].getClassLoader.getResourceAsStream(jarName))
+        Option(loader.getResourceAsStream(jarName))
+          .orElse(Option(loader.getResourceAsStream(jarName)))
+          .orElse(Option(loader.getResource(jarName)).map(_.openStream()))
       is.map { stream =>
           val bytes =
-            try StreamUtil.readBytes(stream)
+            try toBytes(stream)
             finally stream.close()
           FileUtil.writeToFile(maybeSbtJar, bytes)
+        }
+        .orElse {
+          if (Files.exists(maybeFile)) {
+            FileUtil.writeToFile(maybeSbtJar, Files.readAllBytes(maybeFile))
+            Option(maybeFile)
+          } else {
+            None
+          }
         }
         .getOrElse {
           throw new IOException(s"Not found: '$jarName'.")
         }
     }
     maybeSbtJar
+  }
+
+  private def toBytes(stream: InputStream): Array[Byte] = {
+    val buffer = new ByteArrayOutputStream()
+    val data = new Array[Byte](16384)
+    var nRead = 0
+    do {
+      nRead = stream.read(data, 0, data.length)
+      if (nRead != -1)
+        buffer.write(data, 0, nRead)
+    } while (nRead != -1)
+    buffer.flush()
+    buffer.toByteArray
   }
 }
